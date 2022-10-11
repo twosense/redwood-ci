@@ -16,9 +16,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
     - name: Setup Node.js v16
       uses: actions/setup-node@v3
       with:
