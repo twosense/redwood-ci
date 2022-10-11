@@ -85,7 +85,7 @@ runs:
       
     - name: Run Tests
       working-directory: ${{ steps.project-directory.outputs.dir }}
-      run: yarn rw test
+      run: yarn rw test --collectCoverage
       env:
         TEST_DATABASE_URL: postgresql://test:password@localhost:5432/test
       shell: bash
