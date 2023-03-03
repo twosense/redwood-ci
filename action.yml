@@ -80,9 +80,16 @@ runs:
       run: yarn rw check
       shell: bash
       
-    - name: Run Tests
+    - name: Run API Tests
       working-directory: ${{ steps.project-directory.outputs.dir }}
-      run: yarn rw test --collectCoverage
+      run: yarn rw test api --collectCoverage
+      env:
+        TEST_DATABASE_URL: postgresql://test:password@localhost:5432/test
+      shell: bash
+
+    - name: Run Web Tests
+      working-directory: ${{ steps.project-directory.outputs.dir }}
+      run: yarn rw test web --collectCoverage
       env:
         TEST_DATABASE_URL: postgresql://test:password@localhost:5432/test
       shell: bash
